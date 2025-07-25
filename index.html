@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header  -->
+         <header class="header">
+            <h1>Quiz Master</h1>
+            <p>Test your knowledge across various categories!</p>
+         </header>
+         <!-- Home Screen -->
+          <div id="home-screen" class="home-screen">
+            <div class="card">
+                <h2>Select Quiz Setting</h2>
+
+                <div class="form-group">
+                    <label for="" class="form-label">Your Name</label>
+                    <input type="text" id="player-name" placeholder="Enter your name" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="form-label">Difficulty Level</label>
+                    <div class="btnWrapper">
+                        <button class="difficulty-btn difficulty-easy" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn difficulty-medium" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn difficulty-hard" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="form-label">Quiz Category</label>
+                    <div class="category-grid">
+                        <div class="category-card" data-category="general">
+                            <div class="category-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>General Knowledge</h3>
+                        </div>
+
+                        <div class="category-card" data-category="science">
+                            <div class="category-icon" style="background-color: #f3e8ff;">
+                                <i class="fas fa-flask" style="color: #7e22ce;"></i>
+                            </div>
+                            <h3>Science</h3>
+                        </div>
+
+                        <div class="category-card" data-category="history">
+                            <div class="category-icon" style="background-color: #fef3c7;">
+                                <i class="fas fa-history" style="color: #b45309;"></i>
+                            </div>
+                            <h3>History</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-lg pulse-animation" id="start-quiz-btn">
+                    Start Quiz <i class="fas fa-arrow-right btn-icon"></i></button>
+            </div>
+          </div>
+
+          <!-- Quiz Screen  -->
+           <div id="quiz-screen" class="hidden">
+            <div class="card">
+                <div class="quiz-header">
+                    <div>
+                        <span class="badge badge-category" id="category-badge"></span>
+                        <span id="difficulty-badge" class="badge"></span>
+                    </div>
+                    <div>
+                        <div id="timer">Time : 60s</div>
+                        <div id="score">Score : 0</div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                </div>
+                <div class="question-number" id="question-number">Question 1 of 10</div>
+                <h2 id="question-text" class="question-text"></h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Options will be dynamically added here  -->
+                </div>
+                <div id="feedback" class="feedback hidden"></div>
+                <div class="quiz-footer">
+                    <button id="quit-btn" class="btn btn-secondary">Quit Quiz</button>
+                    <button id="next-btn" class="btn btn-primary hidden">Next Question</button>
+                </div>
+            </div>
+           </div>
+
+           <!-- Result Screen  -->
+            <div id="results-screen" class="hidden">
+                <div class="card">
+                    <div class="results-content">
+                        <img src="result.jpg" alt="">
+                        <h2>Quiz Completed!</h2>
+                        <h3>Here's your performance</h3>
+
+                        <div class="results-stats">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">Score</div>
+                                    <div id="final-score" class="stat-value">0</div>
+                                </div>
+
+                                <div class="stat-item">
+                                    <div class="stat-label">Correct</div>
+                                    <div id="correct-answers" class="stat-value stat-correct">0</div>
+                                </div>
+
+                                <div class="stat-item">
+                                    <div class="stat-label">Wrong</div>
+                                    <div id="wrong-answers" class="stat-value stat-wrong">0</div>
+                                </div>
+
+                            </div>
+
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span id="rating">0 / 5</span>
+                            </div>
+                        </div>
+
+                        <div class="results-buttons">
+                            <buttons id="restart-btn" class="btn btn-primary btn-lg">Restart Quiz</buttons>
+                            <buttons id="new-quiz-btn" class="btn btn-outline btn-lg">Choose New Quiz</buttons>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
